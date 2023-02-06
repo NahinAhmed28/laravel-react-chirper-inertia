@@ -56,10 +56,6 @@ api_test
 ```shell
 php artisan migrate:fresh --seed
 ```
-### Go to
-#### vendor/laravel/framework/src/Illuminate/Foundation/Auth/User.php
-#### Replace-  " use Illuminate\Database\Eloquent\Model; " with -
-#### " use Jenssegers\Mongodb\Eloquent\Model; ""
 
 ##### Run this command to clear all type of cache
 
