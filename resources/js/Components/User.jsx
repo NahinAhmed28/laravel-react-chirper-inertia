@@ -39,19 +39,19 @@ class User extends Component {
 
                 <p>Here are the people using your application...</p>
 
-                <table className="table">
-                    <thead>
-                    <tr key={ user.id }>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-                    </thead>
+                {/*<table className="table">*/}
+                {/*    <thead>*/}
+                {/*    <tr key={ user._id }>*/}
+                {/*        <th>ID</th>*/}
+                {/*        <th>Name</th>*/}
+                {/*        <th>Email</th>*/}
+                {/*    </tr>*/}
+                {/*    </thead>*/}
 
-                    <tbody>
-                    { this.renderUsers() }
-                    </tbody>
-                </table>
+                {/*    <tbody>*/}
+                {/*    { this.renderUsers() }*/}
+                {/*    </tbody>*/}
+                {/*</table>*/}
             </div>
         );
     }
@@ -59,6 +59,6 @@ class User extends Component {
 
 export default User;
 
-if (document.getElementById('usersInfo')) {
-    ReactDOM.render(<User />, document.getElementById('usersInfo'));
-}
+// if (document.getElementById('user')) {
+//     ReactDOM.render(<User />, document.getElementById('user'));
+// }
