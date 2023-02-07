@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
-        return User::all();
+        $data = [
+            'users' => \App\Models\User::all(),
+        ];
+
+        return Inertia::render('Demo',$data);
     }
 
     /**

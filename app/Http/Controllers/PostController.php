@@ -16,9 +16,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
+        $data = [
+            'posts' =>Post::all(),
+        ];
 
-        return Inertia::render('Post/Index', ['posts' => $posts]);
+        return Inertia::render('Post/Index', $data);
     }
 
     /**
@@ -63,15 +65,15 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Inertia\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        return Inertia::render('Post/Edit', [
-            'post' => [
-                'id' => $post->id,
-                'title' => $post->title,
-                'description' => $post->description
-            ]
-        ]);
+
+        $data = [
+            'post' =>Post::find($id)
+        ];
+
+        return Inertia::render('Post/Edit', $data);
+
     }
 
     /**
@@ -94,10 +96,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+        $post =Post::find($id);
         $post->delete();
-
-        return Redirect::route('posts.index');
+        return Redirect::back();
     }
 }
