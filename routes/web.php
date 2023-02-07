@@ -39,6 +39,16 @@ Route::middleware('auth')->group(function () {
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('getUser');
 
 
+Route::get('/demo', function () {
+
+
+    $data = [
+        'users' => \App\Models\User::all(),
+    ];
+
+    return Inertia::render('Demo',$data);
+});
+
 Route::resource('posts', PostController::class);
 
 require __DIR__.'/auth.php';
