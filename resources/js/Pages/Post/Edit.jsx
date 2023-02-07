@@ -95,9 +95,10 @@
 //
 // export default Edit;
 
+import React, { useState } from 'react';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import PrimaryButton from "@/Components/PrimaryButton";
+
 
 
 
@@ -106,14 +107,22 @@ export default function Post(props) {
     let post = props.post;
 
 
-    function handleSubmit() {
-        console.log(post);
-    }
+    // function handleSubmit() {
+    //     console.log(post._id);
+    //     e.preventDefault();
+    //     patch(route("post.update", post._id));
+    // }
 
-    const { data, setData, put, errors } = ({
+
+    const { data, setData, put, errors } = useState({
         title: post.title || "",
         description: post.description || "",
     });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        put(route("post.update", post._id));
+    };
 
     return (
         <AuthenticatedLayout
@@ -142,25 +151,17 @@ export default function Post(props) {
                                                 className="w-full px-4 py-2"
                                                 label="Title"
                                                 name="title"
-                                                value={post.title}
-                                                onChange={(e) =>
-                                                    setData("title", e.target.value)
-                                                }
                                             />
 
                                         </div>
                                         <div className="mb-4">
                                             <label className="">Description</label>
                                             <textarea
-                                                type="text"
                                                 className="w-full rounded"
                                                 label="description"
+                                                type="text"
                                                 name="description"
-                                                // errors={errors.description}
-                                                value={post.description}
-                                                onChange={(e) =>
-                                                    setData("description", e.target.value)
-                                                }
+
                                             />
 
                                         </div>
@@ -172,9 +173,6 @@ export default function Post(props) {
                                         >
                                             Update
                                         </button>
-
-                                        {/*<PrimaryButton type="submit" processing={processing}>Update</PrimaryButton>*/}
-
 
                                 </form>
                             </div>
