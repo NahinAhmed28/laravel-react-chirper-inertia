@@ -45,7 +45,7 @@ export default function Create(props) {
                                             className="w-full px-4 py-2"
                                             label="Title"
                                             name="title"
-                                            value={post.title}
+                                            // value={post.title}
                                             onChange={(e) =>
                                                 setData("title", e.target.value)
                                             }
@@ -60,7 +60,7 @@ export default function Create(props) {
                                             label="description"
                                             name="description"
                                             // errors={errors.body}
-                                            value={post.body}
+                                            // value={post.body}
                                             onChange={(e) =>
                                                 setData("body", e.target.value)
                                             }
