@@ -8,10 +8,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Post extends Eloquent
 {
-    protected $fillable = [
-        'title',
-        'description'
-    ];
+    protected $guarded=["id"];
 
     use HasFactory;
 }

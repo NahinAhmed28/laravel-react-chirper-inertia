@@ -6,7 +6,7 @@ import SecondaryButton from "@/Components/SecondaryButton";
 import DangerButton from "@/Components/DangerButton";
 
 
-export default function Post(props) {
+export default function Index(props) {
     let posts = props.posts;
     console.log(posts);
     let i = 1;
@@ -20,14 +20,21 @@ export default function Post(props) {
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     Posts List
                 </h2>
+
             }
         >
             <Head title="Posts List" />
+
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
+                            <NavLink  href={route('post.create')}>
+                                <button className="ml-3 bg-purple-500 text-white px-4 py-2.5 rounded-md float-right mb-4" >
+                                    Create New Post
+                                </button>
+                            </NavLink>
                             <table className="table-auto w-full text-center">
                                 <thead>
                                 <tr>

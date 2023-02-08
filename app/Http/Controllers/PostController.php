@@ -41,11 +41,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+
         Post::create(
             $request->validated()
         );
 
-        return Redirect::route('posts.index');
+        return Redirect::route('post.index');
     }
 
     /**
@@ -83,7 +85,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
 //        $post->update($request->validated());
         dd($request->all());
@@ -106,7 +108,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        dd($id);
+
         $post =Post::find($id);
+
         $post->delete();
         return Redirect::back();
     }
