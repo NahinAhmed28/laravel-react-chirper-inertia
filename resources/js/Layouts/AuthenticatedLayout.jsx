@@ -31,6 +31,9 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('post.index')} active={route().current('post.index')}>
                                     Posts-List
                                 </NavLink>
+                                <NavLink href={route('api-info')} active={route().current('api-info')}>
+                                    Api-Info
+                                </NavLink>
 
                             </div>
                         </div>
