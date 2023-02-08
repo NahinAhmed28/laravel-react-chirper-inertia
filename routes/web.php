@@ -30,6 +30,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/api-info', function () {
+    return Inertia::render('DashboardTable');
+})->middleware(['auth', 'verified'])->name('api-info');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
