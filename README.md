@@ -15,6 +15,8 @@
 ##### Node ^16+
 ##### React ^18.2.0
 ##### Laravel ^9.0
+##### npm ^8.19.2
+
 
 ## Installation
 
