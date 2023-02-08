@@ -43,13 +43,7 @@ php artisan key:generate
 php artisan storage:link 
 ```
 
-##### Go to Your MySql Server and create a Database with a name .
-```sh
-api_test
-```
-##### Go to your .env file and copy the name in  for DB_DATABASE
-
-..
+##### set up your .env file 
 
 ##### Run this command for migration and seeder
 
@@ -69,7 +63,7 @@ php artisan optimize:clear
 ##### Install node dependencies of this project by running
 
 ```sh
-npm install --legacy-peer-deps
+npm install 
 npm run dev
 npm run build
 ```
