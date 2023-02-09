@@ -5,6 +5,8 @@ import PieChart from "../components/PieChart";
 import BarChart from "../components/BarChart";
 
 import {Chart, ArcElement, CategoryScale,LinearScale,BarElement} from 'chart.js'
+import NavLink from "@/Components/NavLink";
+import PrimaryButton from "@/Components/PrimaryButton";
 Chart.register(ArcElement,CategoryScale,LinearScale,BarElement);
 
 
@@ -70,7 +72,7 @@ export default function Dashboard(props) {
                         <div className="px-6 py-2 text-gray-900">
                             APIs Home
                         </div>
-                        <div className="px-6 py-2 bg-gray-300 text-black-900">
+                        <div className="px-6 py-2 bg-gray-300 ">
                             <span className="pr-6">Controls</span> <span className="px-6 font-bold">YEAR</span>  <span className="px-6 font-bold">MONTH</span>
                         </div>
                           <div className="border  border-gray-100 text-gray-700">
@@ -89,8 +91,68 @@ export default function Dashboard(props) {
                                   </div>
                               </div>
                         </div>
-                        <div className="px-6 py-2  text-black-900">
-                            <span className="pr-6">Usage Plan Pivot Table</span>
+                        <div className="px-6 py-6">
+                            <div className="col-span-2 pr-6 font-bold text-gray-700">Usage Plan Pivot Table</div>
+                            <div className="grid grid-cols-5">
+                                <div className="col-span-3 pr-6 font-bold text-gray-700"></div>
+                                <div className="col-span-2 font-bold text-gray-700">URL path</div>
+                            </div>
+                            <table className="table-auto w-full text-center mt-6">
+                                <thead>
+                                <tr>
+                                    <th>Plan Name</th>
+                                    <th>Customer</th>
+                                    <th>/</th>
+                                    <th>/login</th>
+                                    <th>/orders</th>
+                                    <th>/profile</th>
+                                    <th>/shoppingcart</th>
+                                    <th>/total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td className="bg-red-500">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-600">a</td>
+                                    <td>a</td>
+                                </tr>
+                                <tr>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td className="bg-red-500">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-600">a</td>
+                                    <td>a</td>
+                                </tr>
+                                <tr>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td className="bg-red-500">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-600">a</td>
+                                    <td>a</td>
+                                </tr>
+                                <tr>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td className="bg-red-500">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-400">a</td>
+                                    <td className="bg-orange-600">a</td>
+                                    <td>a</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
