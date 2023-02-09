@@ -2,11 +2,11 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState } from "react";
 import { Head } from '@inertiajs/react';
 import PieChart from "../components/PieChart";
-import BarChart from "../components/BarChart";
+import Table from "@/Components/Table";
 
+import BarChart from "../components/BarChart";
 import {Chart, ArcElement, CategoryScale,LinearScale,BarElement} from 'chart.js'
-import NavLink from "@/Components/NavLink";
-import PrimaryButton from "@/Components/PrimaryButton";
+
 Chart.register(ArcElement,CategoryScale,LinearScale,BarElement);
 
 
@@ -97,62 +97,9 @@ export default function Dashboard(props) {
                                 <div className="col-span-3 pr-6 font-bold text-gray-700"></div>
                                 <div className="col-span-2 font-bold text-gray-700">URL path</div>
                             </div>
-                            <table className="table-auto w-full text-center mt-6">
-                                <thead>
-                                <tr>
-                                    <th>Plan Name</th>
-                                    <th>Customer</th>
-                                    <th>/</th>
-                                    <th>/login</th>
-                                    <th>/orders</th>
-                                    <th>/profile</th>
-                                    <th>/shoppingcart</th>
-                                    <th>/total</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td className="bg-red-500">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-600">a</td>
-                                    <td>a</td>
-                                </tr>
-                                <tr>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td className="bg-red-500">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-600">a</td>
-                                    <td>a</td>
-                                </tr>
-                                <tr>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td className="bg-red-500">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-600">a</td>
-                                    <td>a</td>
-                                </tr>
-                                <tr>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td className="bg-red-500">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-400">a</td>
-                                    <td className="bg-orange-600">a</td>
-                                    <td>a</td>
-                                </tr>
-                                </tbody>
-                            </table>
+
+                            <Table />
+
                         </div>
                     </div>
                 </div>
