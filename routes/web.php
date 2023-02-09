@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LogController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -42,7 +43,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::resource('user', UserController::class);
 Route::resource('post', PostController::class);
-
+Route::resource('log', LogController::class);
 
 
 Route::get('/demo', function () {
