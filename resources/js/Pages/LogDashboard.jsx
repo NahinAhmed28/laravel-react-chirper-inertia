@@ -15,9 +15,10 @@ export default function Dashboard(props) {
 
 
     const [chartDataPie] = useState({
-        labels:["API_DEVELOPER","API_ENTERPRISE"],
+        // labels:["API_DEVELOPER","API_ENTERPRISE"],
         datasets: [
             {
+                label: 'Users Gained',
                 data: [55, 23],
                 backgroundColor: [
                     'rgba(20,54,166,0.93)',
@@ -31,9 +32,42 @@ export default function Dashboard(props) {
 
 
     });
+
+    const [chartOptionPie] = useState({
+
+        options : {
+
+            elements: {
+                bar: {
+                    borderWidth: 2,
+                },
+            },
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'right',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Horizontal Bar Chart',
+                },
+            },
+            scales: {
+                y: {
+                    max: 5,
+                    min: 0,
+                    ticks: {
+                        stepSize: 0.5
+                    }
+                }
+            }
+        }
+    });
+
+
     const [chartDataBar] = useState({
 
-        labels:["a","b","b","b","b","f"],
+        labels:["a","b","c","d","e","f"],
             datasets: [
                 {
                     label: 'Users Gained',
@@ -46,13 +80,36 @@ export default function Dashboard(props) {
 
     });
     const [chartOptionBar] = useState({
-
-
-        });
-    const [chartOptionPie] = useState({
-
+        options : {
+            indexAxis: 'y' ,
+            elements: {
+                bar: {
+                    borderWidth: 2,
+                },
+            },
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'right',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Horizontal Bar Chart',
+                },
+            },
+            scales: {
+                y: {
+                    max: 5,
+                    min: 0,
+                    ticks: {
+                        stepSize: 0.5
+                    }
+                }
+            }
+        }
 
     });
+
 
 
     return (
