@@ -67,13 +67,13 @@ php artisan optimize:clear
 ```sh
 npm install 
 npm run dev
-npm run build
+
 ```
 
 
 
 
-##### Run this command to start application
+##### Run this command to in a new terminal to start application
 
 ```shell
 php artisan serve

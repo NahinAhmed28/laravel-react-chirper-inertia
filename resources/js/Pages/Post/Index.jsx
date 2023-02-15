@@ -2,8 +2,6 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import PrimaryButton from "@/Components/PrimaryButton";
 import NavLink from "@/Components/NavLink";
-import SecondaryButton from "@/Components/SecondaryButton";
-import DangerButton from "@/Components/DangerButton";
 
 
 export default function Index(props) {

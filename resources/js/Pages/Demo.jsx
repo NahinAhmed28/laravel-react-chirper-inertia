@@ -37,7 +37,7 @@ export default function Demo(props) {
                                 <tbody>
 
                                 {users.map((user) => (
-                                   <tr>
+                                   <tr key={user._id}>
                                        <td>{i++}</td>
                                        <td>{user.name}</td>
                                        <td>{user.email}</td>
