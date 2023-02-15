@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Log;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class LogController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
@@ -24,17 +25,53 @@ class LogController extends Controller
             $parts = explode(' ', $value);
             $lines[] = array(
                 'date' => ltrim($parts[0], '[') . ' ' . rtrim($parts[1], ']'),
-                'port' => $parts[2],
-                'ip1' => $parts[3],
-                'ip2' => $parts[4]
+                '2' => $parts[2],
+                '3' => $parts[3],
+                '4' => $parts[4],
+                '5' => $parts[5],
+                '6' => $parts[6],
+                '7' => $parts[7],
+                '8' => $parts[8],
+                '9' => $parts[9],
+                '10' => $parts[10],
             );
 
         }
+
+
+        return Inertia::render('LogDashboard',$lines);
+
+
+    }
+
+    public function check()
+    {
+        $file = file(storage_path() . '/' . 'app' . '/public/' . '/api/' . 'log2.log');
+//        dd($file);
+
+        $datas = json_decode(json_encode($file), true);
+//        dd($datas);
+        $lines = array();
+        foreach($datas as  $value) {
+            $parts = explode(' ', $value);
+            $lines[] = array(
+                'date' => ltrim($parts[0], '[') . ' ' . rtrim($parts[1], ']'),
+                '2' => $parts[2],
+                '3' => $parts[3],
+                '4' => $parts[4],
+                '5' => $parts[5],
+                '6' => $parts[6],
+                '7' => $parts[7],
+                '8' => $parts[8],
+                '9' => $parts[9],
+                '10' => $parts[10],
+            );
+
+        }
+
+
         echo "<pre>";
         print_r($lines);
-
-
-
 
     }
 

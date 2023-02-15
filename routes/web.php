@@ -32,25 +32,28 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/api-info', function () {
-    return Inertia::render('ApiTable');
-})->middleware(['auth', 'verified'])->name('api-info');
+Route::get('/log-info', function () {
+    return Inertia::render('LogDashboard');
+})->middleware(['auth', 'verified'])->name('log-info');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('user', UserController::class);
+    Route::resource('post', PostController::class);
+    Route::resource('log', LogController::class);
+    Route::get('/log-check', [LogController::class, 'check']);
 });
-Route::resource('user', UserController::class);
-Route::resource('post', PostController::class);
-Route::resource('log', LogController::class);
 
 
-Route::get('/demo', function () {
-    $data = [
-        'users' => \App\Models\User::all(),
-    ];
-    return Inertia::render('Demo',$data);
-});
+
+//Route::get('/demo', function () {
+//    $data = [
+//        'users' => \App\Models\User::all(),
+//    ];
+//    return Inertia::render('Demo',$data);
+//});
 
 require __DIR__.'/auth.php';
