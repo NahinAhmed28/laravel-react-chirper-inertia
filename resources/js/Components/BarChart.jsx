@@ -11,7 +11,7 @@ function BarChart({ chartData }) {
                 options={{
                     plugins: {
                         title: {
-                            display: true,
+                            display: false,
                             // text: "Users Gained between 2016-2020"
                         }
                     }

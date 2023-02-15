@@ -4,57 +4,46 @@ import { Head } from '@inertiajs/react';
 import PieChart from "../components/PieChart";
 import Table from "@/Components/Table";
 
-import BarChart from "../components/BarChart";
-import {Chart, ArcElement, CategoryScale,LinearScale,BarElement} from 'chart.js'
 
-Chart.register(ArcElement,CategoryScale,LinearScale,BarElement);
+import BarChart from "../components/BarChart";
+import {Chart, ArcElement, CategoryScale,LinearScale,BarElement,Legend,Title} from 'chart.js'
+
+Chart.register(ArcElement,CategoryScale,LinearScale,BarElement,Legend,Title);
 
 
 export default function Dashboard(props) {
 
 
     const [chartDataPie] = useState({
-
+        labels:["a","b"],
         datasets: [
             {
-                labels:['Blue','Orange'],
                 data: [55, 23],
-                // you can set indiviual colors for each bar
                 backgroundColor: [
                     'rgba(20,54,166,0.93)',
                     'rgb(211,180,27)',
                 ],
                 borderWidth: 1,
+                borderColor: "rgba(62,84,49,0.6)",
+
             }
-        ]
+        ],
+
 
     });
     const [chartDataBar] = useState({
 
-        datasets: [{
-            axis: 'y',
-            data: [65, 59, 80, 81, 56, 55, 40],
+        labels:["a","b","b","b","b","f"],
+            datasets: [
+                {
+                    label: 'Users Gained',
+                    backgroundColor: 'rgba(0, 255, 0, 0.2)',
+                    borderColor: 'rgb(0, 255, 0)',
+                    borderWidth: 1,
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                }
+            ]
 
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
-            ],
-            borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-                'rgb(201, 203, 207)'
-            ],
-            borderWidth: 1
-        }]
     });
 
 
