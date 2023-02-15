@@ -2,20 +2,13 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 
 
-function BarChart({ chartData }) {
+function BarChart({ chartData },{chartOption}) {
     return (
         <div>
 
             <Bar
                 data={chartData}
-                options={{
-                    plugins: {
-                        title: {
-                            display: false,
-                            // text: "Users Gained between 2016-2020"
-                        }
-                    }
-                }}
+                options= {chartOption}
             />
         </div>
     );

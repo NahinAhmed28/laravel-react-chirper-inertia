@@ -15,7 +15,7 @@ export default function Dashboard(props) {
 
 
     const [chartDataPie] = useState({
-        labels:["a","b"],
+        labels:["API_DEVELOPER","API_ENTERPRISE"],
         datasets: [
             {
                 data: [55, 23],
@@ -37,12 +37,20 @@ export default function Dashboard(props) {
             datasets: [
                 {
                     label: 'Users Gained',
-                    backgroundColor: 'rgba(0, 255, 0, 0.2)',
-                    borderColor: 'rgb(0, 255, 0)',
+                    backgroundColor: 'rgba(20,54,166,0.93)',
+                    borderColor: 'rgba(20,54,166,0.6)',
                     borderWidth: 1,
                     data: [65, 59, 80, 81, 56, 55, 40],
                 }
             ]
+
+    });
+    const [chartOptionBar] = useState({
+
+
+        });
+    const [chartOptionPie] = useState({
+
 
     });
 
@@ -69,13 +77,13 @@ export default function Dashboard(props) {
                                   <div className="py-6 col-span-2 border  border-gray-400">
                                       <span className="pl-3 font-bold">MTD Traffic By usage plan</span>
                                       <div className="py-6 flex items-center justify-center">
-                                          <PieChart chartData={chartDataPie} />
+                                          <PieChart chartData={chartDataPie} chartOption={chartOptionPie}/>
                                       </div>
                                   </div>
                                   <div className="py-6  col-span-3 border border-gray-500">
                                       <span className="pl-3 font-bold">Top Enterprise Customer bt MTD Traffic</span>
                                       <div className="py-6 flex items-center justify-center">
-                                          <BarChart chartData={chartDataBar} />
+                                          <BarChart chartData={chartDataBar}  chartOption={chartOptionBar} />
                                       </div>
                                   </div>
                               </div>
