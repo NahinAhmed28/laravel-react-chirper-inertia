@@ -23,16 +23,14 @@ class LogController extends Controller
         foreach($datas as  $value) {
             $parts = explode(' ', $value);
             $lines[] = array(
-
                 'date' => ltrim($parts[0], '[') . ' ' . rtrim($parts[1], ']'),
                 'port' => $parts[2],
                 'ip1' => $parts[3],
                 'ip2' => $parts[4]
             );
-            echo "<pre>";
-
 
         }
+        echo "<pre>";
         print_r($lines);
 
 
