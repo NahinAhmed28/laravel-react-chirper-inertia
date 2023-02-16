@@ -1,21 +1,20 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState } from "react";
 import { Head } from '@inertiajs/react';
-import PieChart from "../components/PieChart";
+
 import Table from "@/Components/Table";
-import { BeakerIcon } from '@heroicons/react/24/solid'
-
-
+import PieChart from "../components/PieChart";
 import BarChart from "../components/BarChart";
-import {Chart, ArcElement, CategoryScale,LinearScale,BarElement,Legend,Title} from 'chart.js'
+import LineChart from "../components/LineChart";
+import {Chart, ArcElement, CategoryScale,LinearScale,BarElement,Legend,Title,PointElement,LineElement,Tooltip} from 'chart.js'
 
-Chart.register(ArcElement,CategoryScale,LinearScale,BarElement,Legend,Title);
+Chart.register(ArcElement,CategoryScale,LinearScale,BarElement,Legend,Title,PointElement,LineElement,Tooltip);
 
 
 export default function Dashboard(props) {
 
 
-    const [chartDataPie, setChartDataPie] = useState({
+    const [chartDataPie] = useState({
         labels: ["API_DEVELOPER", "API_ENTERPRISE"],
         datasets: [
             {
@@ -31,7 +30,7 @@ export default function Dashboard(props) {
         ]
     });
 
-    const [chartOptionPie, setChartOptionPie] = useState({
+    const [chartOptionPie] = useState({
         plugins: {
             tooltip: {
                 callbacks: {
@@ -47,13 +46,14 @@ export default function Dashboard(props) {
         }
     });
 
+    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
     const [chartDataBar] = useState({
 
-        labels:["a","b","c","d","e","f"],
+        labels,
             datasets: [
                 {
-                    label: 'Users Gained',
+                    label: ['200'],
                     backgroundColor: [
                         '#001eb4'
                     ],
@@ -67,11 +67,10 @@ export default function Dashboard(props) {
 
     });
     const [chartOptionBar] = useState({
-        options: {
             indexAxis: 'x',
             elements: {
                 bar: {
-                    borderWidth: 2,
+                    borderWidth: 1,
                 },
             },
             responsive: true,
@@ -80,20 +79,49 @@ export default function Dashboard(props) {
                     position: 'right',
                 },
                 title: {
-                    display: true,
-                    // text: 'Chart.js Horizontal Bar Chart',
+                    display: false,
+                    text: 'Chart.js Horizontal Bar Chart',
                 },
             },
             scales: {
                 y: {
                     max: 15,
                     min: 0,
-
-                }
+                    barThickness: 1, // adjust the bar width here
+                },
             }
-        }
+
+    });
+    const [chartDataLine] = useState({
+        labels:["a","b","c","d","e","f"],
+        datasets: [
+            {
+                label: 'Dataset 1',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                borderColor: 'rgb(20,105,17)',
+                backgroundColor: 'rgba(104,255,99,0.5)',
+            },
+            // {
+            //     label: 'Dataset 2',
+            //     data: [75, 69, 90, 91, 6, 55, 90],
+            //     borderColor: 'rgb(53, 162, 235)',
+            //     backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            // },
+        ],
     });
 
+    const [chartOptionLine] = useState({
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: false,
+                text: 'Chart.js Line Chart',
+            },
+        },
+    });
 
 
     return (
@@ -106,8 +134,32 @@ export default function Dashboard(props) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="my-2 p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        aaaa
+                    <div className="my-2 p-10 bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-2 bg-gray-800 text-white ">
+                            <span className="font-bold">All Systems</span>
+                        </div>
+                        <div className="flex flex-wrap justify-center mb-10">
+                            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4 border-gray-300 border">
+                                    <p>Success</p>
+                            </div>
+                            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4 border-gray-300 border">
+                                    <p>Failure</p>
+                            </div>
+                            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4 border-gray-300 border">
+                                    <p>Exceptions</p>
+                            </div>
+                            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4 border-gray-300 border">
+                                    <p>Active</p>
+                            </div>
+                            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4 border-gray-300 border">
+                                    <p>Memory Used (Avg)</p>
+                            </div>
+                            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4 border-gray-300 border">
+                                <p>Disk Used (%)</p>
+                            </div>
+                        </div>
+
+                        <LineChart chartData={chartDataLine} chartOption={chartOptionLine} />
                     </div>
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg ">
                          <span className="relative inline-flex items-center px-4 py-1 text-gray-900 border-x-2 border-gray-300 bg-gray-300 ">
