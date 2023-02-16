@@ -46,12 +46,13 @@ class LogController extends Controller
     }
 public function demo()
 {
-    $file = file(storage_path() . '/' . 'app' . '/public/' . '/api/' . 'log2.log');
-//        dd($file);
+    $logData = file(storage_path() . '/' . 'app' . '/public/' . '/api/' . 'log2.log');
 
-    $logData = json_decode(json_encode($file), true);
+
 
     foreach ($logData as $log) {
+
+
         // Extract the log message, which should be a JSON object
         $jsonStart = strpos($log, '{');
         $jsonEnd = strrpos($log, '}');
@@ -60,6 +61,7 @@ public function demo()
         // Parse the JSON object
         $data = json_decode($json, true);
 
+
         // Access specific data fields from the JSON object as needed
         $requestSize = $data['request']['size'];
         $requestMethod = $data['request']['method'];
@@ -67,6 +69,7 @@ public function demo()
         $responseStatus = $data['response']['status'];
 
         // Do something with the data fields, such as print them out
+        echo "<pre>";
         echo "Request method: $requestMethod\n";
         echo "Request URI: $requestUri\n";
         echo "Request size: $requestSize\n";
@@ -79,27 +82,43 @@ public function demo()
         $file = file(storage_path() . '/' . 'app' . '/public/' . '/api/' . 'log2.log');
 //        dd($file);
 
-        $datas = json_decode(json_encode($file), true);
-//        dd($datas);
+//        $datas = json_decode(json_encode($file), true);
+////        dd($datas);
+//        $lines = array();
+//        foreach($datas as  $value) {
+//            $parts = explode(' ', $value);
+//            $lines[] = array(
+//                'date' => ltrim($parts[0], '[') . ' ' . rtrim($parts[1], ']'),
+//                '2' => $parts[2],
+//                '3' => $parts[3],
+//                '4' => $parts[4],
+//                '5' => $parts[5],
+//                '6' => $parts[6],
+//                '7' => $parts[7],
+//                '8' => $parts[8],
+//                '9' => $parts[9],
+//                '10' => $parts[10],
+//            );
+//
+//        }
+//
+//
+//        echo "<pre>";
+//        print_r($lines);
+
         $lines = array();
-        foreach($datas as  $value) {
-            $parts = explode(' ', $value);
-            $lines[] = array(
-                'date' => ltrim($parts[0], '[') . ' ' . rtrim($parts[1], ']'),
-                '2' => $parts[2],
-                '3' => $parts[3],
-                '4' => $parts[4],
-                '5' => $parts[5],
-                '6' => $parts[6],
-                '7' => $parts[7],
-                '8' => $parts[8],
-                '9' => $parts[9],
-                '10' => $parts[10],
-            );
-
+        foreach ($file as $line) {
+            // Extract the JSON data from the log message
+            $json_start = strpos($line, '{');
+            if ($json_start !== false) {
+                $json_data = substr($line, $json_start);
+                $data = json_decode($json_data, true);
+                if ($data !== null) {
+                    // If the JSON data is valid, add it to the array of lines
+                    $lines[] = $data;
+                }
+            }
         }
-
-
         echo "<pre>";
         print_r($lines);
 
