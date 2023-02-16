@@ -4,11 +4,11 @@ import React from "react";
 
 function Table() {
     return (
-        <div>
+        <div className="overflow-x-scroll">
 
             <table className="table-auto w-full text-center mt-6">
                 <thead>
-                <tr>
+                <tr className="divide-x divide-gray-400 border border-gray-400">
                     <th>Plan Name</th>
                     <th>Customer</th>
                     <th>/</th>
@@ -20,7 +20,7 @@ function Table() {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr className="divide-x divide-gray-400 border border-gray-400">
                     <td>a</td>
                     <td>a</td>
                     <td className="bg-red-500">a</td>
@@ -30,7 +30,7 @@ function Table() {
                     <td className="bg-orange-600">a</td>
                     <td>a</td>
                 </tr>
-                <tr>
+                <tr className="divide-x divide-gray-400 border border-gray-400">
                     <td>a</td>
                     <td>a</td>
                     <td className="bg-red-500">a</td>
@@ -40,7 +40,7 @@ function Table() {
                     <td className="bg-orange-600">a</td>
                     <td>a</td>
                 </tr>
-                <tr>
+                <tr className="divide-x divide-gray-400 border border-gray-400">
                     <td>a</td>
                     <td>a</td>
                     <td className="bg-red-500">a</td>
@@ -50,7 +50,7 @@ function Table() {
                     <td className="bg-orange-600">a</td>
                     <td>a</td>
                 </tr>
-                <tr>
+                <tr className="divide-x divide-gray-400 border border-gray-400">
                     <td>a</td>
                     <td>a</td>
                     <td className="bg-red-500">a</td>
