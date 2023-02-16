@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Head } from '@inertiajs/react';
 import PieChart from "../components/PieChart";
 import Table from "@/Components/Table";
+import { BeakerIcon } from '@heroicons/react/24/solid'
 
 
 import BarChart from "../components/BarChart";
@@ -105,10 +106,22 @@ export default function Dashboard(props) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="px-6 py-2 text-gray-900">
-                            APIs Home
-                        </div>
+                    <div className="my-2 p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        aaaa
+                    </div>
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg ">
+                         <span className="relative inline-flex items-center px-4 py-1 text-gray-900 border-x-2 border-gray-300 bg-gray-300 ">
+                            <span className="mx-4">APIs: Home</span>
+                            <svg className="w-4 h-4 absolute right-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M10 13l-6-6h12l-6 6z" />
+                            </svg>
+                         </span>
+                        <span className="px-4 py-1 text-gray-900 border-x-2 border-gray-300">
+                            APIs: Enterprise
+                        </span>
+                        <span className="px-4 py-1 text-gray-900 border-x-2 border-gray-300">
+                            APIs: Developers
+                        </span>
                         <div className="px-6 py-2 bg-gray-300 ">
                             <span className="pr-6">Controls</span> <span className="px-6 font-bold">YEAR</span>  <span className="px-6 font-bold">MONTH</span>
                         </div>
