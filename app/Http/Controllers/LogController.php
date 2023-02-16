@@ -44,7 +44,36 @@ class LogController extends Controller
 
 
     }
+public function demo()
+{
+    $file = file(storage_path() . '/' . 'app' . '/public/' . '/api/' . 'log2.log');
+//        dd($file);
 
+    $logData = json_decode(json_encode($file), true);
+
+    foreach ($logData as $log) {
+        // Extract the log message, which should be a JSON object
+        $jsonStart = strpos($log, '{');
+        $jsonEnd = strrpos($log, '}');
+        $json = substr($log, $jsonStart, $jsonEnd - $jsonStart + 1);
+
+        // Parse the JSON object
+        $data = json_decode($json, true);
+
+        // Access specific data fields from the JSON object as needed
+        $requestSize = $data['request']['size'];
+        $requestMethod = $data['request']['method'];
+        $requestUri = $data['request']['uri'];
+        $responseStatus = $data['response']['status'];
+
+        // Do something with the data fields, such as print them out
+        echo "Request method: $requestMethod\n";
+        echo "Request URI: $requestUri\n";
+        echo "Request size: $requestSize\n";
+        echo "Response status: $responseStatus\n\n";
+    }
+
+}
     public function check()
     {
         $file = file(storage_path() . '/' . 'app' . '/public/' . '/api/' . 'log2.log');
