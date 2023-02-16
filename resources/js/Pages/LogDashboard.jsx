@@ -14,11 +14,11 @@ Chart.register(ArcElement,CategoryScale,LinearScale,BarElement,Legend,Title);
 export default function Dashboard(props) {
 
 
-    const [chartDataPie] = useState({
-        // labels:["API_DEVELOPER","API_ENTERPRISE"],
+    const [chartDataPie, setChartDataPie] = useState({
+        labels: ["API_DEVELOPER", "API_ENTERPRISE"],
         datasets: [
             {
-                label: 'Users Gained',
+                labels: ["API_DEVELOPER", "API_ENTERPRISE"],
                 data: [55, 23],
                 backgroundColor: [
                     'rgba(20,54,166,0.93)',
@@ -26,38 +26,20 @@ export default function Dashboard(props) {
                 ],
                 borderWidth: 1,
                 borderColor: "rgba(62,84,49,0.6)",
-
             }
-        ],
-
-
+        ]
     });
 
-    const [chartOptionPie] = useState({
-
-        options : {
-
-            elements: {
-                bar: {
-                    borderWidth: 2,
-                },
-            },
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'right',
-                },
-                title: {
-                    display: true,
-                    text: 'Chart.js Horizontal Bar Chart',
-                },
-            },
-            scales: {
-                y: {
-                    max: 5,
-                    min: 0,
-                    ticks: {
-                        stepSize: 0.5
+    const [chartOptionPie, setChartOptionPie] = useState({
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        let label = context.label || '';
+                        if (context.parsed.y !== null) {
+                            label += ': ' + context.parsed.y;
+                        }
+                        return label;
                     }
                 }
             }
@@ -146,7 +128,7 @@ export default function Dashboard(props) {
                                   <div className="py-6 col-span-2 border  border-gray-400">
                                       <span className="pl-3 font-bold">MTD Traffic By usage plan</span>
                                       <div className="py-6 flex items-center justify-center">
-                                          <PieChart chartData={chartDataPie} chartOption={chartOptionPie}/>
+                                          <PieChart chartData={chartDataPie} chartOption={chartOptionPie} />
                                       </div>
                                   </div>
                                   <div className="py-6  col-span-3 border border-gray-500">
