@@ -14,11 +14,19 @@ Chart.register(ArcElement,CategoryScale,LinearScale,BarElement,Legend,Title);
 export default function Dashboard(props) {
 
 
+<<<<<<< HEAD
     const [chartDataPie] = useState({
         // labels:["API_DEVELOPER","API_ENTERPRISE"],
         datasets: [
             {
                 label: 'Users Gained',
+=======
+    const [chartDataPie, setChartDataPie] = useState({
+        labels: ["API_DEVELOPER", "API_ENTERPRISE"],
+        datasets: [
+            {
+                label: ["API_DEVELOPER", "API_ENTERPRISE"],
+>>>>>>> bc9f4d1492a2e1b2cb645223368dda1e10aef2fa
                 data: [55, 23],
                 backgroundColor: [
                     'rgba(20,54,166,0.93)',
@@ -26,6 +34,7 @@ export default function Dashboard(props) {
                 ],
                 borderWidth: 1,
                 borderColor: "rgba(62,84,49,0.6)",
+<<<<<<< HEAD
 
             }
         ],
@@ -58,6 +67,22 @@ export default function Dashboard(props) {
                     min: 0,
                     ticks: {
                         stepSize: 0.5
+=======
+            }
+        ]
+    });
+
+    const [chartOptionPie, setChartOptionPie] = useState({
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        let label = context.label || '';
+                        if (context.parsed.y !== null) {
+                            label += ': ' + context.parsed.y;
+                        }
+                        return label;
+>>>>>>> bc9f4d1492a2e1b2cb645223368dda1e10aef2fa
                     }
                 }
             }
@@ -72,6 +97,7 @@ export default function Dashboard(props) {
                 {
                     label: 'Users Gained',
                     backgroundColor: [
+<<<<<<< HEAD
                         '#B21F00',
                         '#C9DE00',
                         '#2FDE00',
@@ -83,6 +109,11 @@ export default function Dashboard(props) {
                         '#4B5000',
                         '#175000',
                         '#003350',
+=======
+                        '#001eb4'
+                    ],
+                    hoverBackgroundColor: [
+>>>>>>> bc9f4d1492a2e1b2cb645223368dda1e10aef2fa
                         '#35014F'
                     ],
                     borderWidth: 1,
@@ -92,8 +123,13 @@ export default function Dashboard(props) {
 
     });
     const [chartOptionBar] = useState({
+<<<<<<< HEAD
         options : {
             indexAxis: 'y' ,
+=======
+        options: {
+            indexAxis: 'x',
+>>>>>>> bc9f4d1492a2e1b2cb645223368dda1e10aef2fa
             elements: {
                 bar: {
                     borderWidth: 2,
@@ -106,11 +142,16 @@ export default function Dashboard(props) {
                 },
                 title: {
                     display: true,
+<<<<<<< HEAD
                     text: 'Chart.js Horizontal Bar Chart',
+=======
+                    // text: 'Chart.js Horizontal Bar Chart',
+>>>>>>> bc9f4d1492a2e1b2cb645223368dda1e10aef2fa
                 },
             },
             scales: {
                 y: {
+<<<<<<< HEAD
                     max: 5,
                     min: 0,
                     ticks: {
@@ -120,6 +161,14 @@ export default function Dashboard(props) {
             }
         }
 
+=======
+                    max: 15,
+                    min: 0,
+
+                }
+            }
+        }
+>>>>>>> bc9f4d1492a2e1b2cb645223368dda1e10aef2fa
     });
 
 
@@ -142,6 +191,7 @@ export default function Dashboard(props) {
                             <span className="pr-6">Controls</span> <span className="px-6 font-bold">YEAR</span>  <span className="px-6 font-bold">MONTH</span>
                         </div>
                           <div className="border  border-gray-100 text-gray-700">
+<<<<<<< HEAD
                               <div className="grid grid-cols-5 ">
                                   <div className="py-6 col-span-2 border  border-gray-400">
                                       <span className="pl-3 font-bold">MTD Traffic By usage plan</span>
@@ -153,6 +203,19 @@ export default function Dashboard(props) {
                                       <span className="pl-3 font-bold">Top Enterprise Customer bt MTD Traffic</span>
                                       <div className="py-6 flex items-center justify-center">
                                           <BarChart chartData={chartDataBar}  chartOption={chartOptionBar} />
+=======
+                              <div className="grid md:grid-cols-2 sm:grid-cols-5">
+                                  <div className="py-6 border border-gray-400">
+                                      <span className="pl-3 font-bold">MTD Traffic By usage plan</span>
+                                      <div className="py-6 flex items-center justify-center">
+                                          <PieChart chartData={chartDataPie} chartOption={chartOptionPie} />
+                                      </div>
+                                  </div>
+                                  <div className="py-6 border border-gray-500">
+                                      <span className="pl-3 font-bold">Top Enterprise Customer bt MTD Traffic</span>
+                                      <div className="py-6 flex items-center justify-center">
+                                          <BarChart chartData={chartDataBar} chartOption={chartOptionBar} horizontal={true} />
+>>>>>>> bc9f4d1492a2e1b2cb645223368dda1e10aef2fa
                                       </div>
                                   </div>
                               </div>
