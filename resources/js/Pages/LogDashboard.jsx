@@ -1,8 +1,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState } from "react";
 import { Head } from '@inertiajs/react';
-
 import Table from "@/Components/Table";
+import ServerTable from "@/Components/ServerTable";
 import PieChart from "../components/PieChart";
 import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
@@ -160,6 +160,7 @@ export default function Dashboard(props) {
                         </div>
 
                         <LineChart chartData={chartDataLine} chartOption={chartOptionLine} />
+                        <ServerTable></ServerTable>
                     </div>
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg ">
                          <span className="relative inline-flex items-center px-4 py-1 text-gray-900 border-x-2 border-gray-300 bg-gray-300 ">
