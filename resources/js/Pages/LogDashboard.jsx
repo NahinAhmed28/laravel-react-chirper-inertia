@@ -18,7 +18,7 @@ export default function Dashboard(props) {
         labels: ["API_DEVELOPER", "API_ENTERPRISE"],
         datasets: [
             {
-                labels: ["API_DEVELOPER", "API_ENTERPRISE"],
+                label: ["API_DEVELOPER", "API_ENTERPRISE"],
                 data: [55, 23],
                 backgroundColor: [
                     'rgba(20,54,166,0.93)',
@@ -80,7 +80,7 @@ export default function Dashboard(props) {
                 },
                 title: {
                     display: true,
-                    text: 'Chart.js Horizontal Bar Chart',
+                    // text: 'Chart.js Horizontal Bar Chart',
                 },
             },
             scales: {
