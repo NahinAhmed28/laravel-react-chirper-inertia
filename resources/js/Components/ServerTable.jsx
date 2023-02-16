@@ -7,7 +7,7 @@ function ServerTable() {
         <div className="overflow-x-scroll	">
 
             <table className="table-auto w-full text-center mt-6 border-collapse">
-                <thead className="bg-blue-600 text-white font-bold">
+                <thead className="bg-gradient-to-r from-indigo-500 to-indigo-200 text-deep-purple-700 font-bold">
                 <tr className="divide-x divide-gray-400 border border-gray-400">
                     <th className="px-2">Name</th>
                     <th className="px-2">Success</th>
