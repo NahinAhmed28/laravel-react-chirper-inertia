@@ -54,17 +54,9 @@ export default function Dashboard(props) {
                 {
                     label: 'Users Gained',
                     backgroundColor: [
-                        '#B21F00',
-                        '#C9DE00',
-                        '#2FDE00',
-                        '#00A6B4',
-                        '#6800B4'
+                        '#001eb4'
                     ],
                     hoverBackgroundColor: [
-                        '#501800',
-                        '#4B5000',
-                        '#175000',
-                        '#003350',
                         '#35014F'
                     ],
                     borderWidth: 1,
@@ -74,8 +66,8 @@ export default function Dashboard(props) {
 
     });
     const [chartOptionBar] = useState({
-        options : {
-            indexAxis: 'y' ,
+        options: {
+            indexAxis: 'x',
             elements: {
                 bar: {
                     borderWidth: 2,
@@ -93,15 +85,12 @@ export default function Dashboard(props) {
             },
             scales: {
                 y: {
-                    max: 5,
+                    max: 15,
                     min: 0,
-                    ticks: {
-                        stepSize: 0.5
-                    }
+
                 }
             }
         }
-
     });
 
 
@@ -124,17 +113,17 @@ export default function Dashboard(props) {
                             <span className="pr-6">Controls</span> <span className="px-6 font-bold">YEAR</span>  <span className="px-6 font-bold">MONTH</span>
                         </div>
                           <div className="border  border-gray-100 text-gray-700">
-                              <div className="grid grid-cols-5 ">
-                                  <div className="py-6 col-span-2 border  border-gray-400">
+                              <div className="grid md:grid-cols-2 sm:grid-cols-5">
+                                  <div className="py-6 border border-gray-400">
                                       <span className="pl-3 font-bold">MTD Traffic By usage plan</span>
                                       <div className="py-6 flex items-center justify-center">
                                           <PieChart chartData={chartDataPie} chartOption={chartOptionPie} />
                                       </div>
                                   </div>
-                                  <div className="py-6  col-span-3 border border-gray-500">
+                                  <div className="py-6 border border-gray-500">
                                       <span className="pl-3 font-bold">Top Enterprise Customer bt MTD Traffic</span>
                                       <div className="py-6 flex items-center justify-center">
-                                          <BarChart chartData={chartDataBar}  chartOption={chartOptionBar} />
+                                          <BarChart chartData={chartDataBar} chartOption={chartOptionBar} horizontal={true} />
                                       </div>
                                   </div>
                               </div>
