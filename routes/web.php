@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('log', LogController::class);
     Route::get('/log-check', [LogController::class, 'check']);
     Route::get('/log-demo', [LogController::class, 'demo']);
+    Route::get('/log-chunk', [LogController::class, 'chunk']);
 });
 
 

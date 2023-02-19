@@ -15,32 +15,12 @@ class LogController extends Controller
      */
     public function index()
     {
-//        $file = file(storage_path() . '/' . 'app' . '/public/' . '/api/' . 'log2.log');
-////        dd($file);
-//
-//        $datas = json_decode(json_encode($file), true);
-////        dd($datas);
-//        $lines = array();
-//        foreach($datas as  $value) {
-//            $parts = explode(' ', $value);
-//            $lines[] = array(
-//                'date' => ltrim($parts[0], '[') . ' ' . rtrim($parts[1], ']'),
-//                '2' => $parts[2],
-//                '3' => $parts[3],
-//                '4' => $parts[4],
-//                '5' => $parts[5],
-//                '6' => $parts[6],
-//                '7' => $parts[7],
-//                '8' => $parts[8],
-//                '9' => $parts[9],
-//                '10' => $parts[10],
-//            );
-//
-//        }
-//
-//        return Inertia::render('LogDashboard',$lines);
 
-        return Inertia::render('LogDashboard');
+        $data = [
+            'posts' =>Log::all(),
+        ];
+//        return Inertia::render('LogDashboard');
+        return Inertia::render('LogDashboard',$data);
 
 
     }
@@ -116,14 +96,47 @@ public function demo()
                 if ($data !== null) {
                     // If the JSON data is valid, add it to the array of lines
                     $lines[] = $data;
+                    echo "<pre>";
+                    print_r($lines);
                 }
             }
         }
-        echo "<pre>";
-        print_r($lines);
+
+
 
     }
 
+    public function chunk()
+    {
+        $filename = storage_path() . '/app/public/api/log2.log';
+        $handle = fopen($filename, "r");
+        $chunkSize = 1024; // 1 KB
+        $lines = array();
+
+        while (!feof($handle)) {
+            $line = fgets($handle, $chunkSize);
+
+
+            // Extract the JSON data from the log message
+            $json_start = strpos($line, '{');
+
+//            dd($json_start);
+            if ($json_start !== false) {
+                $json_data = substr($line, $json_start);
+                $data = json_decode($json_data, true);
+                if ($data !== null) {
+                    // If the JSON data is valid, add it to the array of lines
+                    $lines[] = $data;
+                    echo "<pre>";
+                    print_r($lines);
+                }
+            }
+        }
+
+        fclose($handle);
+
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -134,6 +147,7 @@ public function demo()
         //
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -142,7 +156,25 @@ public function demo()
      */
     public function store(Request $request)
     {
-        //
+
+        foreach ($request->chunk(100) as $messages) {
+            $arr_messages = array();        // Move to here
+            foreach ($messages as $message) {
+                array_push($arr_messages, $this->__transformDistricts($message));
+            }
+            $log = new Log();
+            $log->message = $message;
+            $log->save();
+        }
+
+
+//        $message = $request->input('message');
+
+//        $log = new Log();
+//        $log->message = $message;
+//        $log->save();
+
+        return response()->json(['message' => 'Log saved successfully']);
     }
 
     /**
