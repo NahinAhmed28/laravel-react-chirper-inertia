@@ -1,88 +1,34 @@
-# Welcome to the Project Documentation
+# Laravel React Chirper Inertia
 
-- [Technology Requirements](#Technology-Requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [File Upload Documentation](#file-upload-documentation)
+Laravel React Chirper Inertia is a Laravel application using React and Inertia-style front-end integration. It appears to be based on a Chirper/social-posting workflow for learning full-stack Laravel patterns.
 
+## Project Details
 
+- Repository: `NahinAhmed28/laravel-react-chirper-inertia`
+- Default branch: `master`
+- Visibility: public
+- Project type: Laravel + React + Inertia application
+- Main focus: Chirper-style posting workflow
 
-## Technology Requirements
+## Getting Started
 
-
-##### PHP ^8.1
-##### mongoDB ^6.0
-##### Node ^16+
-##### React ^18.2.0
-##### Laravel ^9.0
-##### npm ^8.19.2
-
-
-## Installation
-
-```sh
-git clone this-url
-```
-
-```sh
-cd project-root
-```
-
-
-
-##### Install [composer](https://getcomposer.org/) dependencies of this project by running
-
-```sh
+```bash
+git clone https://github.com/NahinAhmed28/laravel-react-chirper-inertia.git
+cd laravel-react-chirper-inertia
 composer install
-```
-
-##### Copy `.env-example` to `.env` and configure your database and other connection.
-
-##### Run this two command also
-
-```shell
+cp .env.example .env
 php artisan key:generate
-php artisan storage:link 
-```
-
-##### set up your .env file 
-
-##### Run this command for migration and seeder
-
-```shell
-php artisan migrate:fresh --seed
-```
-
-##### Run this command to clear all type of cache
-
-```shell
-php artisan cache:clear
-```
-
-```shell
-php artisan optimize:clear
-```
-##### Install node dependencies of this project by running
-
-```sh
-npm install 
+npm install
 npm run dev
-
-```
-
-
-
-
-##### Run this command to in a new terminal to start application
-
-```shell
 php artisan serve
 ```
 
-## Usage
+Configure `.env`, then run migrations if included.
 
-Go to the link  `http://127.0.0.1:8000/register` for registration and log in the system using registered credentials .
-
-## License
+```bash
+php artisan migrate
 ```
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Notes
+
+Document authentication, chirp/post features, React components, and deployment steps as the project evolves.
