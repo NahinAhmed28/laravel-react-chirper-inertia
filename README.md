@@ -1,14 +1,25 @@
 # Laravel React Chirper Inertia
 
-Laravel React Chirper Inertia is a Laravel application using React and Inertia-style front-end integration. It appears to be based on a Chirper/social-posting workflow for learning full-stack Laravel patterns.
+Laravel React Chirper Inertia is a Laravel + React + Inertia style application for a Chirper/social-post workflow.
 
-## Project Details
+## Features
 
-- Repository: `NahinAhmed28/laravel-react-chirper-inertia`
-- Default branch: `master`
-- Visibility: public
-- Project type: Laravel + React + Inertia application
-- Main focus: Chirper-style posting workflow
+- Laravel backend with React UI
+- Chirper-style post/message workflow
+- Inertia-style full-stack page integration
+- Authentication and database-backed records when enabled
+
+## Modules
+
+- Chirp module: posts/messages and timeline behavior
+- Auth module: users and protected actions
+- React view module: components and pages
+- Laravel backend module: routes, controllers, and models
+- Data module: migrations and persistence
+
+## System Architecture
+
+The project follows a Laravel full-stack architecture with React/Inertia-style UI rendering. Laravel handles routes, controllers, models, and persistence. React components render interactive pages. Inertia-style page responses bridge backend routes and front-end components.
 
 ## Getting Started
 
@@ -22,13 +33,3 @@ npm install
 npm run dev
 php artisan serve
 ```
-
-Configure `.env`, then run migrations if included.
-
-```bash
-php artisan migrate
-```
-
-## Notes
-
-Document authentication, chirp/post features, React components, and deployment steps as the project evolves.
